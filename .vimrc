@@ -13,18 +13,23 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-Plugin 'andviro/flake8-vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'hdima/python-syntax'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-surround'
+Plugin 'HerringtonDarkholme/yats.vim'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'andviro/flake8-vim'
 Plugin 'bling/vim-airline'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
+Plugin 'hdima/python-syntax'
+Plugin 'jremmen/vim-ripgrep'
+Plugin 'yuezk/vim-js'
+Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'udalov/kotlin-vim'
+Plugin 'jiangmiao/auto-pairs'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -56,9 +61,11 @@ inoremap <s-tab> <c-n>
 
 " for js/coffee/jade files, 2 spaces
 autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
+autocmd Filetype typescript setlocal ts=2 sw=2 sts=0 expandtab
 
 set backspace=indent,eol,start
 syntax on
+set re=0
 set number
 set updatetime=250
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
@@ -76,3 +83,5 @@ let g:PyFlakeOnWrite = 1
 autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 command! W PyFlakeAuto
+
+:set switchbuf+=usetab,newtab
